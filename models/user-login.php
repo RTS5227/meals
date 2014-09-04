@@ -12,9 +12,19 @@ $profile = $database->get("users", [
 	"email" => $email
 ]);
 
+$profile_pw = $profile[password];
 
 
-echo(json_encode($profile));
+
+if($password == $profile_pw){
+	echo('good');
+	session_start();
+	$_SESSION['user']=$email;
+}
+
+else{
+	echo 'bad';
+}
 
 
 ?>

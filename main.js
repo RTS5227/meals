@@ -53,9 +53,15 @@ $('#loginSubmit').on('click',function(){
 		'models/user-login.php', 
 		post_data, 
 		function(response){
-			log(response);
+
 			if(response === 'false'){
 				log('Bad login my friend');
+			}
+			if(response == 'good'){
+				log('we good');
+			}
+			else{
+				log('we bad');
 			}
 		}
 	)

@@ -2,6 +2,18 @@
 error_reporting( E_ALL );
 ini_set( "display_errors", 1 );
 
+session_start();
+
+
+if(isset($_SESSION['user'])){
+	echo "Loggedin Status=". $_SESSION['user'];	
+}
+else{
+	echo "Not logged in";
+}
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -14,8 +26,8 @@ ini_set( "display_errors", 1 );
     </head>
     <body>
 
-
-	Meal Planner
+	
+	<h2>Meal Planner</h2>
 	<hr>
 
 
@@ -23,7 +35,7 @@ ini_set( "display_errors", 1 );
 
 	<p><input type='text' name='email' id='email' placeholder='email'></p>
 	<p><input type='text' name='password' id='password' placeholder='password'></p>
-	<p> <button id='newUserSubmit' type='button'>Submit</button>
+	<p> <button id='newUserSubmit' type='button'>Sign me up!</button>
 
 
 
@@ -31,7 +43,7 @@ ini_set( "display_errors", 1 );
 
 	<p><input type='text' name='loginEmail' id='loginEmail' placeholder='email'></p>
 	<p><input type='text' name='loginPassword' id='loginPassword' placeholder='password'></p>
-	<p> <button id='loginSubmit' type='button'>Submit</button>
+	<p> <button id='loginSubmit' type='button'>Login</button>
 
 
 
