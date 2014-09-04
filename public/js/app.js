@@ -1,11 +1,11 @@
+var app = angular.module('MealsApp', ['ngRoute', 'ui.router']);
 
-log = function(m){
-	console.log(m);
-}
+
+
 
 // New User
 //=============
-$('#newUserSubmit').on('click', function(){
+$('body').on('click', '#newUserSubmit', function(){
 	var email = $('#email').val();
 	var password = $('#password').val();
 
@@ -34,7 +34,7 @@ $('#newUserSubmit').on('click', function(){
 
 // Login User
 //=============
-$('#loginSubmit').on('click',function(){
+$('body').on('click', '#loginSubmit', function(){
 	var email = $('#loginEmail').val();
 	var password = $('#loginPassword').val();	
 
@@ -53,12 +53,12 @@ $('#loginSubmit').on('click',function(){
 		'models/user-login.php', 
 		post_data, 
 		function(response){
-
 			if(response === 'false'){
 				log('Bad login my friend');
 			}
 			if(response == 'good'){
 				log('we good');
+				window.location = '/meals'
 			}
 			else{
 				log('we bad');
