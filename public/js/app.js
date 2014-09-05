@@ -58,7 +58,7 @@ $('body').on('click', '#loginSubmit', function(){
 			}
 			if(response == 'good'){
 				log('we good');
-				window.location = '/meals'
+				window.location = 'http://localhost:8888/apps/meals/'
 			}
 			else{
 				log('we bad');
