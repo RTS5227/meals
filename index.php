@@ -9,66 +9,31 @@ if(!isset($_SESSION['user'])){
 }
 
 if(isset($_SESSION['user'])){
-	echo "Loggedin Status=". $_SESSION['user'];	
+	$userEmail = $_SESSION['user'];
+	$userName = $_SESSION['name'];
+	$userInfo = "user = { email: '".$userEmail."', name: '".$userName."' }";
+
 }
-else{
-	echo "Not logged in";
+else{ echo "Not logged in";
 }
 
 ?>
 
+<?php require('public/partials/global/header.php'); ?>
 
-<!DOCTYPE html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">        
-    </head>
-    <body ng-app='MealsApp'>
 
-	<?php if(isset($_SESSION['user'])){ ?>
-		<a href="logout.php">Log Out</a>
-	<?php } ?>
 
 	
-	
-	<hr>
-
-
-	<!-- LEFT COLUMN -->
-	<div>	
-		<div ui-view="inner-viewLeft">Inner left view</div>
-	</div>
-
-	<!-- RIGHT COLUMN -->				
-	<div>
-		<div ui-view="inner-viewRight">Inner Right View</div>
-	</div>
-
-
-	<div>
-		<div ui-view="inner-full">Full Content</div>
+	<div ng-init="<?php echo $userInfo; ?>" class='row-fluid l-primary-wrapper'>
+		<div class='l-topNav' ui-view="inner-topNav">Top Nav View</div>
+		<div class='l-sidebar' ui-view="inner-sidebar">Inner left view</div>
+		<div class='l-mainContent' ui-view="inner-mainContent">Inner Right View</div>
 	</div>
 
 
 
 
-        
-
-	<script src="public/js/libs/jquery.js"></script>
-	<script src="public/js/libs/angular.min.js"></script>
-	<script src="public/js/libs/angular-route.js"></script>
-	<script src="public/js/libs/ui-router.js"></script>
-	<script src="public/js/libs/helpers.js"></script>
-	
-
-
-	<script src="public/js/app.js"></script>
-	<script src="public/js/routes.js"></script>
-	<script src="public/js/controllers/main.js"></script>
-	<script src="public/js/controllers/login.js"></script>
+	<?php require('public/partials/global/footer.php'); ?>
 	
 
 

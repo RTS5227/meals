@@ -4,33 +4,70 @@
 app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
  
-	.state('login', {
+
+	.state('home', {
 	  url: '/',
 	  views: {
-      	"inner-full": { 
-      		templateUrl: "public/partials/users/login.php",
-      		controller: 'LoginController'
-      	}
+      	"inner-sidebar": { 
+      		templateUrl: "public/js/templates/meals/sidebar.php"
+      		// controller: 'MealsController'
+      	},
+
+      	"inner-topNav": { 
+      		templateUrl: "public/js/templates/global/topNav.php"
+      		// controller: 'MealsController'
+      	},
+        
+        "inner-mainContent": { 
+        	templateUrl: "public/js/templates/meals/meal-planner.php",
+        	controller: 'MealsController'
+        }
+
 	  }
 	})
 
 
-	// .state('home', {
-	//   url: '/dashboard',
-	//   controller: 'PreviewController',
-	//   views: {
- //      	"inner-viewLeft": { 
- //      		templateUrl: "assets/partials/notes/notes-entry.html",
- //      		controller: 'PreviewController'
- //      	},
-        
- //        "inner-viewRight": { 
- //        	templateUrl: "assets/partials/notes/notes-list-active.html",
- //        	controller: 'PreviewController'
- //        }
+  .state('meal-viewer', {
+    url: '/my-meals',
+    views: {
+        "inner-sidebar": { 
+          templateUrl: "public/js/templates/meals/sidebar.php"
+          // controller: 'MealsController'
+        },
 
-	//   }
-	// });
+        "inner-topNav": { 
+          templateUrl: "public/js/templates/global/topNav.php"
+          // controller: 'MealsController'
+        },
+        
+        "inner-mainContent": { 
+          templateUrl: "public/js/templates/meals/my-meals.php",
+          controller: 'MealsController'
+        }
+
+    }
+  })
+
+  .state('profile', {
+    url: '/profile',
+    views: {
+        "inner-sidebar": { 
+          templateUrl: "public/js/templates/meals/sidebar.php"
+          // controller: 'MealsController'
+        },
+
+        "inner-topNav": { 
+          templateUrl: "public/js/templates/global/topNav.php"
+          // controller: 'MealsController'
+        },
+        
+        "inner-mainContent": { 
+          templateUrl: "public/js/templates/users/profile.php",
+          controller: 'ProfileController'
+        }
+
+    }
+  });
 
 
    $urlRouterProvider.otherwise('/');
