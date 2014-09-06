@@ -11,4 +11,5 @@
     <script src="public/js/routes.js"></script>
     <script src="public/js/controllers/main.js"></script>
     <script src="public/js/controllers/meals.js"></script>
+    <script src="public/js/controllers/sidebar.js"></script>
     <script src="public/js/controllers/profile.js"></script>

@@ -1,1 +1,1 @@
-Top Nav for something at some point
+<a href="logout.php">Log Out</a>

@@ -9,8 +9,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	  url: '/',
 	  views: {
       	"inner-sidebar": { 
-      		templateUrl: "public/js/templates/meals/sidebar.php"
-      		// controller: 'MealsController'
+      		templateUrl: "public/js/templates/meals/sidebar.php",
+          controller: 'SidebarController'
       	},
 
       	"inner-topNav": { 
@@ -31,8 +31,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
     url: '/my-meals',
     views: {
         "inner-sidebar": { 
-          templateUrl: "public/js/templates/meals/sidebar.php"
-          // controller: 'MealsController'
+          templateUrl: "public/js/templates/meals/sidebar.php",
+          controller: 'SidebarController'
         },
 
         "inner-topNav": { 
@@ -52,8 +52,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
     url: '/profile',
     views: {
         "inner-sidebar": { 
-          templateUrl: "public/js/templates/meals/sidebar.php"
-          // controller: 'MealsController'
+          templateUrl: "public/js/templates/meals/sidebar.php",
+          controller: 'SidebarController'
         },
 
         "inner-topNav": { 

@@ -1,0 +1,10 @@
+{
+  "author": "Ben Lodge",
+  "name": "MealsApp",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-contrib-sass": "~0.8.1"
+  }
+}

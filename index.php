@@ -12,9 +12,6 @@ if(isset($_SESSION['user'])){
 	$userEmail = $_SESSION['user'];
 	$userName = $_SESSION['name'];
 	$userInfo = "user = { email: '".$userEmail."', name: '".$userName."' }";
-
-}
-else{ echo "Not logged in";
 }
 
 ?>

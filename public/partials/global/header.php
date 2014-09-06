@@ -9,11 +9,9 @@
     
         <link rel="stylesheet" href="public/css/bootstrap.3.2.css">
         <link rel="stylesheet" href="public/css/dataTables.css">
-        <link rel="stylesheet" href="public/css/main.css">
+        <link rel="stylesheet" href="public/css/style.css">
 
     </head>
     <body ng-app='MealsApp'>
 
-	<?php if(isset($_SESSION['user'])){ ?>
-		<a href="logout.php">Log Out</a>
-	<?php } ?>
+	
