@@ -1,14 +1,10 @@
 
 <div class='inner-content col-50'>
-	<h1>Profile</h1>
+	<h1>Update Your Profile</h1>
 	<hr>
 
 	<p class='form-row'>
-		<label for='email'>Email: </label> <input type='text' id='email' name='email'>
-	</p>
-
-	<p class='form-row'>
-		<label for='name'>Name: </label> <input type='text' id='name' name='name'>
+		<label for='name'>Name: </label> <input ng-model='user.name' type='text' id='name' name='name'>
 	</p>
 
 	<p class='form-row'>

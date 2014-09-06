@@ -20,24 +20,16 @@ if(isset($_SESSION['user'])){
 		
 
 			<div class='form ta-center form__login'>
-				<h2 class='form__header'>Login</h2>
-				<p class='form__input'><input type='text' name='loginEmail' id='loginEmail' placeholder='email'></p>
-				<p class='form__input'><input type='text' name='loginPassword' id='loginPassword' placeholder='password'></p>
+				<h2 class='form__header'>Meal-z</h2>
+				<p class='form__input'><input type='text' name='email' id='email' placeholder='email' autofocus></p>
+				<p class='form__input'><input type='text' name='password' id='password' placeholder='password'></p>
 				<p class='ta-left'> <input id='hidepw2' type='checkbox'> <label for='hidepw2'>Hide Password</label> </p>
-				<a class="button-primary" id='loginSubmit'  href="">Login</a>
+				<a class="button-primary login-btn" id='login'  href="">Login</a>
+				<a class="button-primary login-btn" id='newUserSubmit' href="">Sign me up!</a>
+				<p><a class='standard-link' href="#demo">Demo the app</a></p>
+				<div class='login-msg'></div>
 			</div>
 
-
-
-			<div class='form ta-center form__register'>
-				<h2 class='form__header'>Or Register</h2>
-				<p> <input type='text' name='email' id='email' placeholder='email'></p>
-				<p> <input type='text'  name='name' id='name' placeholder='name'></p>
-				<p> <input type='text' name='password' id='password' placeholder='password'></p>
-				<p class='ta-left'> <input id='hidepw' type='checkbox'> <label for='hidepw'>Hide Password</label> </p>
-				
-				<a class="button-primary" id='newUserSubmit' href="" ng-click="updateProfile()">Sign me up!</a>
-			</div>
 
 	
 	

@@ -1,54 +1,32 @@
 
+/*
 
-// New User
+Add Validations:
+ - email
+ - password characters
+ - minimum number of characters
+
+
+
+*/
+
+// Login/Reg User
 //=============
-$('body').on('click', '#newUserSubmit', function(e){
+$('body').on('click', '.login-btn', function(e){
 	e.preventDefault();
+	
 	var email = $('#email').val();
-	var password = $('#password').val();
-	var name = $('#name').val();
+	var password = $('#password').val();	
+
 
 	if(!email || !password){
-		log('fill in all info');
+	var loginError = new Message({
+		target: '.login-msg',
+		type: 'error',
+		message: 'Please fill in all form fields'
+	}).show();
 		return false;
-	}
 
-	var post_data = {
-		'email': email,
-		'name' : name,
-		'password': password
-	}
-
-	$.post(
-		'models/user-create.php', 
-		post_data, 
-		function(response){
-			if(response === 'good'){ 
-				log('we good');
-			}
-			else if(response === 'usernameTaken'){
-				log('username taken');
-			}
-			else{ 
-				log('we not good'); 
-			}
-		}
-	)
-
-})
-
-
-
-// Login User
-//=============
-$('body').on('click', '#loginSubmit', function(e){
-	e.preventDefault();
-	var email = $('#loginEmail').val();
-	var password = $('#loginPassword').val();	
-
-	if(!email || !password){
-		log('fill in all info');
-		return false;
 	}
 
 	var post_data = {
@@ -57,22 +35,64 @@ $('body').on('click', '#loginSubmit', function(e){
 	}
 
 
-	$.get(
-		'models/user-login.php', 
-		post_data, 
-		function(response){
-			if(response === 'false'){
-				log('Bad login my friend');
+	//Login
+	if($(this).attr('id') == 'login'){
+		$.get(
+			'models/user-login.php',
+			post_data, 
+			function(response){
+
+				if(response == 'good'){
+					log('we good');
+					window.location = 'http://localhost:8888/apps/meals/'
+				}
+				else{
+					// bad login
+					var loginError = new Message({
+						target: '.login-msg',
+						type: 'error',
+						message: 'Username or Password are incorrect'
+					}).show();
+					
+
+				}
 			}
-			if(response == 'good'){
-				log('we good');
-				window.location = 'http://localhost:8888/apps/meals/'
+		)
+	}
+
+	//Register
+	else{
+		$.post(
+			'models/user-create.php',
+			post_data, 
+			function(response){
+				log('response: ');
+				log(response);
+				if(response === 'emailTaken'){
+					var loginError = new Message({
+						target: '.login-msg',
+						type: 'error',
+						message: "Email is already taken. <a class='standard-link' href='reset'>Forgot your password?</a>"
+					}).show();
+				}
+				
+				else if(response == 'good'){
+					window.location = 'http://localhost:8888/apps/meals/'
+				}
+				else{
+					var loginError = new Message({
+						target: '.login-msg',
+						type: 'error',
+						message: 'We apologize, we are experiencing technical difficulties'
+					}).show();
+				}
 			}
-			else{
-				log('we bad');
-			}
-		}
-	)
+		)
+		
+	}
+
+
+
 
 })
 

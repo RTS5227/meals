@@ -10,7 +10,15 @@ if(!isset($_SESSION['user'])){
 
 if(isset($_SESSION['user'])){
 	$userEmail = $_SESSION['user'];
-	$userName = $_SESSION['name'];
+	
+	
+	if(isset($_SESSION['name'])){
+		$userName = $_SESSION['name'];
+	}
+	else{
+		$userName = '';
+	}
+
 	$userInfo = "user = { email: '".$userEmail."', name: '".$userName."' }";
 }
 
