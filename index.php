@@ -18,13 +18,14 @@ if(isset($_SESSION['user'])){
 
 <?php require('public/partials/global/header.php'); ?>
 
+<body ng-app='MealsApp'>
 
 
 	
 	<div ng-init="<?php echo $userInfo; ?>" class='row-fluid l-primary-wrapper'>
-		<div class='l-topNav' ui-view="inner-topNav">Top Nav View</div>
-		<div class='l-sidebar' ui-view="inner-sidebar">Inner left view</div>
-		<div class='l-mainContent' ui-view="inner-mainContent">Inner Right View</div>
+		<div class='l-topNav' ui-view="inner-topNav"></div>
+		<div class='l-sidebar' ui-view="inner-sidebar"></div>
+		<div class='l-mainContent' ui-view="inner-mainContent"></div>
 	</div>
 
 

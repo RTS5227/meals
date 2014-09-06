@@ -2,7 +2,8 @@
 
 // New User
 //=============
-$('body').on('click', '#newUserSubmit', function(){
+$('body').on('click', '#newUserSubmit', function(e){
+	e.preventDefault();
 	var email = $('#email').val();
 	var password = $('#password').val();
 	var name = $('#name').val();
@@ -40,7 +41,8 @@ $('body').on('click', '#newUserSubmit', function(){
 
 // Login User
 //=============
-$('body').on('click', '#loginSubmit', function(){
+$('body').on('click', '#loginSubmit', function(e){
+	e.preventDefault();
 	var email = $('#loginEmail').val();
 	var password = $('#loginPassword').val();	
 
