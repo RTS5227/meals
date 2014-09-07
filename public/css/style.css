@@ -691,6 +691,9 @@ select {
 .button--green {
   background: #3c9892; }
 
+.standard-link--red {
+  color: red; }
+
 /* Sidebar 
 -------------------------- */
 .profile__avatar-image {
@@ -783,3 +786,10 @@ select {
   border-radius: 6px;
   display: inline-block;
   margin: 4px; }
+
+.ingredient-remove {
+  width: 20px;
+  padding-right: 10px; }
+
+.ingredient-name:hover {
+  cursor: default; }

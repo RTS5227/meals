@@ -7,7 +7,8 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 	$('#username').html($scope.user.name);
 
 	
-
+	$scope.editing = false;
+	$scope.editingName = ''
 	
 
 	var loadMeals = function(){
@@ -46,6 +47,9 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 			log('response:');
 			log(response);
 			loadMeals();
+			$scope.editing = true;
+			$scope.editingName = fields.name;
+
 		})
 
 
@@ -60,7 +64,7 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 
 	$scope.saveMeal = function($event){
 
-		var time = $event.timeStamp;
+		var time = $event.timeStamp; 
 		var mealID = $('.mealSubmit').data('id');
 	
 		var name = $('#mealName').val();
@@ -93,6 +97,7 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 			fields.mealID = time;
 			// Store meal id as timestamp
 			$('.mealSubmit').attr('data-id',time);
+			$('.mealDelete').attr('data-id',time);
 
 			postNewMeal(fields);
 
@@ -103,12 +108,63 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 	}
 
 
+	$scope.deleteMeal = function($event){
+		log('delete the meal');
+		var id = $('.mealDelete').data('id');
+		var fields = { 'mealID': id }
+		var url = 'models/meal-delete-meal.php';
+
+
+		log('id: ' + id)
+		log('mealID: ');
+		log(fields);
+
+
+		$http({
+		    method: 'DELETE',
+		    url: url,
+		    data: Object.toparams(fields),
+		    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+		}).success(function(response){
+			log('response:');
+			log(response);
+			
+			$scope.editing = false;
+			$scope.editingName = '';
+			loadMeals();
+		})
+
+
+	}
+
+
+	// EVENTS.....
+	$('body').on('dblclick','.ingredients-list__item',function(){
+		var text = $(this).find('.ingredient-name').text();
+		$(this).remove();
+		$('#ingredient').val(text).focus();
+
+	})
+
+
+
+	$('body').on('click','.ingredient-remove',function(e){
+		e.preventDefault();
+		$(this).closest('.ingredients-list__item').remove();
+		$('#ingredient').val(text).focus();
+
+	})
+
+
+
 	$scope.addIngredient = function(){
 		ingr = $('#ingredient');
-		var newIng  = "<li class='ingredients-list__item'>"+ingr.val();+"</li>";
+		
+		var remove = "<a href='#' class='fa fa-remove ingredient-remove'></a>";
+
+		var newIng  = "<li class='ingredients-list__item'>"+remove+"<span class='ingredient-name'>"+ingr.val();+"</span></li>";
 		$ingList.append(newIng);
 		ingr.val('');
-
 
 	}
 

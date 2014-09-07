@@ -21,3 +21,16 @@
 	display: inline-block;
 	margin: 4px;
 }
+
+
+
+.ingredient-remove{
+	width: 20px;
+	padding-right: 10px;
+}
+
+.ingredient-name{
+	&:hover{
+		cursor: default;
+	}
+}
