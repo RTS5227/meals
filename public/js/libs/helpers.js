@@ -24,3 +24,16 @@ Message.prototype = {
 	}
 
 }
+
+
+
+
+// FOR HTTP CALLS JSON ENCODE ISSUE
+Object.toparams = function ObjecttoParams(obj) {
+    var p = [];
+    for (var key in obj) {
+        p.push(key + '=' + obj[key]);
+    }
+    return p.join('&');
+};
+

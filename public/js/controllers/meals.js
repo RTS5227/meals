@@ -26,23 +26,29 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 		    $scope.status = status;
 		});
 
-
-
 	}
+
+
+
 
 
 
 	var postNewMeal = function(fields){
 
-		$.post(
-			'models/meal-create.php',
-			fields,
-			function(response){
-				log('response:');
-				log(response);				
-			}
+		var url = 'models/meal-create.php';
+				
+		$http({
+		    method: 'POST',
+		    url: url,
+		    data: Object.toparams(fields),
+		    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+		}).success(function(response){
+			log('response:');
+			log(response);
+			loadMeals();
+		})
 
-		)
+
 	}
 
 
