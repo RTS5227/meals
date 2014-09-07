@@ -1,23 +1,16 @@
-/* Layout 
--------------------------- */
+@import 'variables';
+
 body{
 	min-height: 100%;
 	background: #385370;
-	background: url(../img/cooking.jpg);
+	background: url(../img/cookbook.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 
-.login-bg{
-	// background: url(../img/cooking.jpg);
-	// background-repeat: no-repeat;
-	// background-size: cover;
-}
 
 .l-topNav{
-	background: #d3e3f2;
-	padding: 10px;
-	border-bottom: 2px solid #869cb3;
+	background: #fff;
 }
 
 .l-primary-wrapper{
@@ -28,74 +21,61 @@ body{
 	background: #fff;
 }
 
+.l-sidebar,
+.l-mainContent{
+	height: 650px;
+}
+
 .l-sidebar{
-	width: 250px;
+	width: 225px;
 	float: left;
-	height: 700px;
-	background: #a8b9ca;
+	background: $gray-dark;
+
+
+
+	*{
+		color: #d3d3d3;
+	}
 }
 
 .l-mainContent{
-	background: #e6e9ed;
+	background: #f0eee5;
+	overflow: scroll;
 	float: left;
-	width: 850px;
-	height: 700px;
+	padding-left: 10px;
+	width: 875px;
 	padding: 5px;
 }
 
+.row{
+	overflow: hidden;
+}
 
+.l-block{
+	float: left;
+	padding: 10px;
+	
+}
 
 .inner-content{
 	padding: 20px 20px;
 }
 
-.col-40{ width: 40%; }
-.col-50{ width: 50%; }
-.col-60{ width: 60%; }
-.col-70{ width: 70%; }
-.col-80{ width: 80%; }
+.col-1{ width: 8.3%; }
+.col-2{ width: 16.6%; }
+.col-3{ width: 25%; }
+.col-4{ width: 33.3%; }
+.col-5{ width: 41.6%; }
+.col-6{ width: 50%; }
+.col-7{ width: 58.3%; }
+.col-8{ width: 66.6%; }
+.col-9{ width: 75%; }
+.col-10{ width: 83.3%; }
+.col-11{ width: 91.6%; }
+.col-12{ width: 100%; }
+
 
 .center-block{
 	margin: 0 auto;
-}
-
-
-/* Sidebar 
--------------------------- */
-
-.profile__avatar-image{
-	border-radius: 50%;
-}
-
-.profile-info{
-	margin-top: 30px;
-	padding-bottom: 30px;
-	text-align: center;
-	border-bottom: 1px solid #dadada;
-}
-
-.sidebar-nav__list{
-	margin-top: 30px;
-}
-
-.sidebar-nav__list-item{
-	margin: 5px 0;
-}
-
-.sidebar-nav__list-item-link{
-	display: block;
-	width: 100%;
-	padding: 10px 0;
-	text-decoration: none;
-	text-align: center;
-	font-size: 16px;
-	&:hover{
-		background: #fff;
-		color: #000;
-	}		
-}
-
-.sidebar-nav__list-link--active{
-	font-weight: bold;
 }
 

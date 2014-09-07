@@ -1,0 +1,33 @@
+@import '../variables';
+
+.l-topNav{
+	*{
+		color: $orange;
+	}
+	border-bottom: 1px solid #000;
+
+	a{
+		font-size: 14px;
+	}
+}
+
+.logo{
+	font-size: 18px;
+	font-weight: 600;
+	text-transform: uppercase;
+	padding-left: 20px;
+	margin: 10px;
+}
+
+
+.topNav__list-item{
+	display: inline-block;
+	padding: 0 10px;
+}
+
+.topNav__logout{
+	float: right;
+	top: 15px;
+	right: 10px;
+	position: relative;
+}

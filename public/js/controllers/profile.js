@@ -9,8 +9,7 @@ app.controller("ProfileController", function($scope, $stateParams) {
 
 
 
-
-	// NEED TO UPDATE SESSION TOO...
+	
 	$scope.updateProfile = function(){
 		var name = $scope.user.name
 		var email = $scope.user.email

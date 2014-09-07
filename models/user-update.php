@@ -13,7 +13,8 @@ $update = $database->update("users",
 
 if($update){
 	echo('good');
-	$_SESSION['name']=$name;  // NOT WORKING....-----------
+	session_start();
+	$_SESSION['name']=$name;
 }
 else{
 	echo('bad');

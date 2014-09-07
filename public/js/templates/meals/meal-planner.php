@@ -1,1 +1,1 @@
-<h1>Welcome back <span id="username"></h1>
+<h2>Meal Planner</h2>

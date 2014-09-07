@@ -9,6 +9,7 @@
 
     <script src="public/js/app.js"></script>
     <script src="public/js/routes.js"></script>
+    <script src="public/js/directives/main.js"></script>
     <script src="public/js/controllers/main.js"></script>
     <script src="public/js/controllers/meals.js"></script>
     <script src="public/js/controllers/sidebar.js"></script>

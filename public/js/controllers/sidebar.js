@@ -7,8 +7,6 @@ app.controller("SidebarController", function($scope, $stateParams) {
 	
 	$('.profile__name').html($scope.user.name);
 
-	
-
 
   });
 

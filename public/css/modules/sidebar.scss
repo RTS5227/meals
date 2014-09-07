@@ -1,0 +1,42 @@
+
+/* Sidebar 
+-------------------------- */
+
+.profile__avatar-image{
+	border-radius: 50%;
+	max-width: 80px;
+}
+
+.profile-info{
+	margin-top: 30px;
+	padding-bottom: 30px;
+	text-align: center;
+	border-bottom: 1px solid #dadada;
+}
+
+.sidebar-nav__list{
+	margin-top: 30px;
+}
+
+.sidebar-nav__list-item{
+	margin: 5px 0;
+}
+
+.sidebar-nav__list-item-link{
+	display: block;
+	width: 100%;
+	padding: 10px 0;
+	text-decoration: none;
+	text-align: center;
+	font-size: 16px;
+	&:hover{
+		background: #2a2a2a;
+		color: #fff;
+
+	}		
+}
+
+.sidebar-nav__list-link--active{
+	font-weight: bold;
+}
+
