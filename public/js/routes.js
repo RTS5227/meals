@@ -26,7 +26,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 	// })
 
 
-  .state('meal-viewer', {
+  .state('meals-home', {
     url: '/',
     views: {
         "inner-sidebar": { 
@@ -45,6 +45,31 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     }
   })
+
+  .state('meal', {
+    url: '/meal/:mealID',
+    views: {
+        "inner-sidebar": { 
+          templateUrl: "public/js/templates/meals/sidebar.php",
+          controller: 'SidebarController'
+        },
+
+        "inner-topNav": { 
+          templateUrl: "public/js/templates/global/topNav.php"
+        },
+        
+        "inner-mainContent": { 
+          templateUrl: "public/js/templates/meals/meal.php",
+          controller: "MealController"
+        }
+
+    }
+  })
+
+
+
+
+
 
   .state('profile', {
     url: '/profile',

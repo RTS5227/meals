@@ -1,15 +1,15 @@
 <div class='row'>
 
-	<div class='col-3 l-block'>
+	<div class='col-4 l-block'>
 		<h2 class='headline'>Meals</h2>
 
 		
-		<a href="" class='standard-link' ng-click='open__new-meal'> Create New Meal</a>
 		<hr>
 
-		<p>Search Meals</p>
+		
+		
+		<p> <input placeholder="Search Meals..." type='text' ng-model='searchMeals' id='searchMeals'></p>
 		<small>(Search by ingredient, name, type of meal...whateva)</small>
-		<p> <input type='text' ng-model='searchMeals' id='searchMeals'></p>
 
 
 	
@@ -17,20 +17,20 @@
 <!-- <div ng-repeat='(name, note) in notes | filter:searchNotes | filter:activeNotes'> -->
 
 
-		<ul class='meal-list' ng-repeat='meal in meals | filter:searchMeals'>
-			<li class='meal-list__item'> <a data-id='{{meal.mealID}}' class='meal-list__item-link' href=""> {{ meal.name }} </a> </li>
+		<ul class='meal-list'>
+			<li ng-repeat='meal in meals | filter:searchMeals' class='meal-list__item'> <a href='#/meal/{{meal.mealID}}' class='meal-list__item-link'> {{ meal.name }} </a> </li>
 		</ul>
 
 
 	</div>
 
 	<div class='col-1 l-block'></div>
-	<div class='col-7 l-block'>
+	<div class='col-6 l-block'>
 
 	
 		<h2 class='headline meal-headline' ng-show="editing == false"> Add a New Meal</h2>
 		<h2 class='headline meal-headline' ng-show="editing == true"> Working on Meal: {{editingName}}</h2>
-
+		<hr>
 		
 		<div class='row'>
 			<div class='col-6 l-block'>

@@ -768,6 +768,10 @@ select {
 .form__register {
   margin-top: 40px; }
 
+.meal-list {
+  height: 440px;
+  overflow: scroll; }
+
 .meal-list__item {
   margin: 10px 0; }
 
