@@ -8,12 +8,13 @@ $name = $_POST["name"];
 $type = $_POST["type"];
 $ingredients = $_POST["ingredients"];
 $instructions = $_POST["instructions"];
+$user = $_POST["user"];
 
 
 
 // LATER --> double check if meal exists first
 
-
+echo('MEALID:::: ' . $mealID);
 //if not...
 $add = $database->insert('meals', [
 	'mealID' => $mealID,
@@ -21,7 +22,8 @@ $add = $database->insert('meals', [
 	'status' => 'active',
 	'type' => $type,
 	'ingredients' => $ingredients,
-	'instructions' => $instructions
+	'instructions' => $instructions,
+	'user' => $user
 ]);
 
 if($add){

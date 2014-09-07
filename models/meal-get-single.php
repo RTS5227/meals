@@ -5,13 +5,13 @@ ini_set( "display_errors", 1 );
 require_once 'meedoo.php';
 require_once 'config.php';
 $database = new medoo();
- 
 
-$userEmail = $_GET['userEmail'];
+// echo 'Request: ' . $_SERVER['REQUEST_METHOD'].'. ';
+
+$mealID = $_GET['mealID'];
 
 
-
-$datas = $database->select("meals", 
+$meal = $database->get("meals", 
 	[
 		"mealID",
 		"id",
@@ -23,17 +23,11 @@ $datas = $database->select("meals",
 		"status",
 		"user"
 	], 
-	[ "AND" =>
-		[
-			"status" => 'active',
-			"user" => $userEmail
-		]
-	]);
+	["mealID" => $mealID]);
 
+$dataJSON = json_encode($meal);
 
-$dataJSON = json_encode($datas);
-
-if($datas){
+if($meal){
 	echo($dataJSON);
 }
 else{

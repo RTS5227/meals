@@ -4,8 +4,53 @@ log('meal.js');
 app.controller("MealController", function($scope, $stateParams, $http) {
 
 	var mealID = $stateParams.mealID;
-	log('load meal: ' + mealID);
+
+
+	$scope.deleteMeal = function(){
+		log('delete the meal');
+		
+		var fields = { 'mealID': $scope.meal.mealID };
+		log(fields);
+
+		$http({
+		    url: 'models/meal-delete-single.php',
+		    method: "GET",
+    		params: fields
+		}).success(function(data, status, headers, config) {
+		    log('success');
+		    log(data);
+		    
+		}).error(function(data, status, headers, config) {
+		    log('error');
+		});
+
+
+	}
+
 	
+
+
+
+	var loadMeal = function(){
+	
+		var fields = { 'mealID': mealID };
+
+		$http({
+		    url: 'models/meal-get-single.php',
+		    method: "GET",
+    		params: fields
+		}).success(function(data, status, headers, config) {
+		    $scope.meal = data;
+		    
+		}).error(function(data, status, headers, config) {
+		    log('error');
+		    $scope.status = status;
+		});
+
+	}
+
+	loadMeal(mealID);
+
 
 });
 

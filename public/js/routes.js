@@ -67,6 +67,26 @@ app.config(function($stateProvider, $urlRouterProvider) {
   })
 
 
+  .state('new-meal', {
+    url: '/new-meal',
+    views: {
+        "inner-sidebar": { 
+          templateUrl: "public/js/templates/meals/sidebar.php",
+          controller: 'SidebarController'
+        },
+
+        "inner-topNav": { 
+          templateUrl: "public/js/templates/global/topNav.php"
+        },
+        
+        "inner-mainContent": { 
+          templateUrl: "public/js/templates/meals/new-meal.php",
+          controller: "MealsController"
+        }
+
+    }
+  })
+
 
 
 
