@@ -10,7 +10,6 @@ app.controller("MealController", function($scope, $stateParams, $http) {
 		log('delete the meal');
 		
 		var fields = { 'mealID': $scope.meal.mealID };
-		log(fields);
 
 		$http({
 		    url: 'models/meal-delete-single.php',

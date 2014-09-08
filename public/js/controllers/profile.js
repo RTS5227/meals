@@ -1,4 +1,3 @@
-log('profile.js');
 
 
 app.controller("ProfileController", function($scope, $stateParams) {

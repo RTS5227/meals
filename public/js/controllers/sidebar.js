@@ -1,5 +1,3 @@
-log('sidebar.js');
-
 
 app.controller("SidebarController", function($scope, $stateParams) {
 

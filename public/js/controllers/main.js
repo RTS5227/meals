@@ -1,13 +1,9 @@
-log('main.js');
-
 
 app.controller("MealsController", function($scope, $stateParams) {
 
 	// Fire it up
 	
 	$scope.name = 'Benjamino';
-
-	
 
 	$scope.editNote = function(id){
 	}
@@ -21,8 +17,3 @@ app.controller("MealsController", function($scope, $stateParams) {
 
 
   });
-
-
-
-
-

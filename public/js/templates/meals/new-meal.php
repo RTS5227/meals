@@ -49,8 +49,8 @@
 					<a href="" ng-show="editing == false" ng-click='saveMeal($event)' class='mealSubmit button-primary button--green button--large'>Save Meal</a>
 					<a href="" ng-show="editing == true" ng-click='updateMeal()' class='mealSubmit button-primary button--green button--large'>Update Meal</a>
 					<div class='createMeal-msg'></div>
-
 				</p>
+
 			</div>
 		</div>
 
@@ -61,8 +61,13 @@
 		<h3 class='headline'>Ingredients</h3>
 
 		<div class='form-row'>
-			<ul class='ingredients-list' ng-model='ingredients'></ul>
+			<ul class='ingredients-list'>
+				<li ng-repeat='ingredient in ingredients track by $index' class='ingredients-list__item'>
+				<a href='' ng-click='removeIngredient(ingredient)' class='fa fa-remove'></a>
+				<span class='ingredient-name'>{{ingredient}}</span></li>
+			</ul>
 		</div>
 	</div>
 
 </div>
+

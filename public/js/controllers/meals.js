@@ -1,5 +1,3 @@
-log('meals.js');
-
 
 app.controller("MealsController", function($scope, $stateParams, $http) {
 
@@ -8,7 +6,7 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 	$scope.mealID = $('.mealSubmit').data('id');
 	$scope.name = '';
 	$scope.type = '';
-	$scope.ingredients = '';
+	$scope.ingredients = [];
 	$scope.instructions = '';
 
 	$scope.editing = false;
@@ -43,22 +41,9 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 		    log('error');
 		});
 
-
-
 	}
 
 
-
-
-	// GET INGREDIENTS LIST FROM DOM
-	// ==============================
-	var getIngredients = function(){
-		var ingredients = [];
-		$('.ingredients-list__item').each(function(i, elem) {
-		    ingredients.push($(elem).text());
-		});
-		return ingredients.toString();
-	}
 
 
 
@@ -70,10 +55,6 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 	$scope.updateMeal = function(){
 		log('update Meal');
 
-		// $scope.mealID = $('.mealSubmit').data('id');
-		$scope.ingredients = getIngredients();
-
-
 		fields = {
 			'mealID': $('.mealSubmit').data('id'),  //why can't get from scope??
 			'user': $scope.user.email,
@@ -83,9 +64,6 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 			'ingredients': $scope.ingredients
 		}
 
-		log('updating:');
-		log(fields);
-				
 		$http({
 		    method: 'POST',
 		    url: 'models/meal-update-single.php',
@@ -114,7 +92,6 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 
 	$scope.saveMeal = function(){
 		var time = Date.now();
-		$scope.ingredients = getIngredients();
 
 		fields = {
 			'user': $scope.user.email,
@@ -153,15 +130,22 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 	}
 
 
-	// ADD INGREDIENTS TO DOM
+	// ADD INGREDIENT
 	// ==============================
 	$scope.addIngredient = function(){
 		ingr = $('#ingredient');
-		var remove = "<a href='#' class='fa fa-remove ingredient-remove'></a>";
-		var newIng  = "<li class='ingredients-list__item'>"+remove+"<span class='ingredient-name'>"+ingr.val();+"</span></li>";
-		$ingList.append(newIng);
+		$scope.ingredients.push(ingr.val());
+		log($scope.ingredients)
 		ingr.val('');
+	}
 
+
+	$scope.removeIngredient = function(ingredient){
+		log('removing');
+	
+		var i = $scope.ingredients.indexOf(ingredient);
+		$scope.ingredients.splice(i, 1);
+		log($scope.ingredients);
 	}
 
 
@@ -176,12 +160,6 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 		$(this).remove();
 		$('#ingredient').val(text).focus();
 
-	})
-
-
-	$('body').on('click','.ingredient-remove',function(e){
-		e.preventDefault();
-		$(this).closest('.ingredients-list__item').remove();
 	})
 
 

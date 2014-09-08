@@ -545,6 +545,9 @@ body {
 .ta-left {
   text-align: left; }
 
+.d-block {
+  display: block; }
+
 .p-rel {
   position: relative; }
 
@@ -568,6 +571,9 @@ h3 {
 
 .headline {
   margin: 10px 0 20px 0; }
+
+a, p, li {
+  margin: 10px 0; }
 
 .form__header {
   text-align: center;
