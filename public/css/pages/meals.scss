@@ -5,12 +5,14 @@
 
 .meal-list__item{
 	margin: 10px 0;
+	max-width: 168px;
 }
 .meal-list__item-link{
 	background: #dadada;
 	border-radius: 4px;
 	padding: 10px;
 	display: block;
+	font-size: 14px
 }
 
 
@@ -38,4 +40,30 @@
 	&:hover{
 		cursor: default;
 	}
+}
+
+
+
+
+
+
+// Meal Planner Page  --> Move out
+// =====================================
+
+
+.meal-day{
+	background: #fff;
+	border-radius: 4px;
+	padding: 15px 10px 20px 10px;
+
+}
+
+.meal-day__headline{
+	text-align: center;
+	font-weight: bold;
+	margin: 0 0 20px 0;
+}
+
+.meal-day__meals{
+	padding: 0 0 30px 0
 }

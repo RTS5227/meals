@@ -483,12 +483,13 @@ body {
     color: #d3d3d3; }
 
 .l-mainContent {
-  background: #f0eee5;
+  position: relative;
   overflow: scroll;
   float: left;
   padding-left: 10px;
   width: 875px;
-  padding: 5px; }
+  padding: 5px;
+  background: #f0eee5; }
 
 .row {
   overflow: hidden; }
@@ -538,6 +539,11 @@ body {
 
 .center-block {
   margin: 0 auto; }
+
+.content-growler {
+  position: absolute;
+  right: 20px;
+  bottom: 0; }
 
 .ta-center {
   text-align: center; }
@@ -846,13 +852,15 @@ select {
   overflow: scroll; }
 
 .meal-list__item {
-  margin: 10px 0; }
+  margin: 10px 0;
+  max-width: 168px; }
 
 .meal-list__item-link {
   background: #dadada;
   border-radius: 4px;
   padding: 10px;
-  display: block; }
+  display: block;
+  font-size: 14px; }
 
 .instructions {
   height: 215px; }
@@ -870,3 +878,16 @@ select {
 
 .ingredient-name:hover {
   cursor: default; }
+
+.meal-day {
+  background: #fff;
+  border-radius: 4px;
+  padding: 15px 10px 20px 10px; }
+
+.meal-day__headline {
+  text-align: center;
+  font-weight: bold;
+  margin: 0 0 20px 0; }
+
+.meal-day__meals {
+  padding: 0 0 30px 0; }

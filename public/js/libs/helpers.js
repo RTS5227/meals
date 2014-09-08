@@ -8,6 +8,8 @@ var Message = function(options){
 	this.target = options.target;
 	this.type = options.type;
 	this.message = options.message;
+	this.timeout = options.timeout;
+	this.timeoutLength = options.timeoutLength || 5000
 }
 
 				
@@ -16,11 +18,18 @@ Message.prototype = {
 	show: function(){
 		var msg = "<div class='msg "+this.type+"'>"+this.message+"</div>";
 		$(this.target).empty().append(msg);
+		if(this.timeout){
+			setTimeout(function(){
+				$('.msg').remove();
+			}, this.timeoutLength)
+		}
 	},
 	
 	hide: function(){
 		log('hide');
-		$('.msg').remove();
+		$('.msg').fadeOut( 1000, function(){
+			$('.msg').remove();
+		});
 	}
 
 }

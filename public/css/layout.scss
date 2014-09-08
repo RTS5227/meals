@@ -37,12 +37,13 @@ body{
 }
 
 .l-mainContent{
-	background: #f0eee5;
+	position: relative;
 	overflow: scroll;
 	float: left;
 	padding-left: 10px;
 	width: 875px;
 	padding: 5px;
+	background: #f0eee5;
 }
 
 .row{
@@ -75,5 +76,14 @@ body{
 
 .center-block{
 	margin: 0 auto;
+}
+
+
+
+
+.content-growler{
+	position: absolute;
+	right: 20px;
+	bottom: 0;
 }
 

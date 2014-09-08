@@ -18,6 +18,7 @@ app.controller("MealController", function($scope, $stateParams, $http) {
 		}).success(function(data, status, headers, config) {
 		    log('success');
 		    log(data);
+		    window.location.replace('#/meals')
 		    
 		}).error(function(data, status, headers, config) {
 		    log('error');

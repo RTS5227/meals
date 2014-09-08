@@ -16,7 +16,27 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 	var init = function(){
 		loadMeals();
 		$('#username').html($scope.user.name);
+		sortable();
 	}
+
+
+
+
+
+
+	var sortable = function(){
+
+		$( ".sortable" ).sortable({
+			  helper: "clone",
+			  connectWith: ".sortable",
+			  refreshPositions: true,
+			  update: function(){
+			  	log('update db');
+			  }
+		})
+	}
+
+
 
 
 
@@ -77,7 +97,8 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 				var loginError = new Message({
 					target: '.createMeal-msg',
 					type: 'success',
-					message: "Meal successfully updated"
+					message: "Meal successfully updated",
+					timeout: true
 				}).show();
 			}
 		})
@@ -123,6 +144,14 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 			loadMeals();
 			$scope.editing = true;
 			$scope.editingName = fields.name;
+
+			var loginError = new Message({
+				target: '.createMeal-msg',
+				type: 'success',
+				message: "Meal successfully updated. <a class='standard-link' href='#/meal/"+fields.mealID+"'>Check it out</a>",
+				timeout: true,
+				timeoutLength: 8000
+				}).show();
 
 		})
 

@@ -48,7 +48,7 @@
 				<p>
 					<a href="" ng-show="editing == false" ng-click='saveMeal($event)' class='mealSubmit button-primary button--green button--large'>Save Meal</a>
 					<a href="" ng-show="editing == true" ng-click='updateMeal()' class='mealSubmit button-primary button--green button--large'>Update Meal</a>
-					<div class='createMeal-msg'></div>
+					<div class='createMeal-msg content-growler'></div>
 				</p>
 
 			</div>
