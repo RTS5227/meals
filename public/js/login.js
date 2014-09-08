@@ -9,7 +9,7 @@ Add Validations:
 
 
 // Toggle States
-// ==============
+// ======================
 
 $('.form__login-tab').on('click',function(){
 	$('.form__login-tab').removeClass('form__login-tab--active');
@@ -20,7 +20,7 @@ $('.form__login-tab').on('click',function(){
 
 $('.form__login-tab--login').on('click',function(){
 	$('.show-for__join').addClass('hidden');
-	$('.hide-for__login').removeClass('hidden');
+	$('.hide-for__join').removeClass('hidden');
 })
 
 $('.form__login-tab--join').on('click',function(){
@@ -29,16 +29,35 @@ $('.form__login-tab--join').on('click',function(){
 })
 
 
+
+// Toggle Password State
+// ======================
+$('#hidepw2').on('click',function(e){
+	if($(this).is(':checked')){
+		$('#password').attr('type','password');
+	}
+	else{
+		$('#password').attr('type','text');
+	}
+})
+
+
+
 // Login/Reg User
-// ==============
+// ======================
 $('body').on('click', '.login-btn', function(e){
 	e.preventDefault();
+
+
+	$('.login-msg').empty();  // WHY ISN'T THIS WORKING????
 	
+
 	var email = $('#email').val();
 	var password = $('#password').val();
 	var name = $('#name').val();	
 
 
+	// Validations - empty
 	if(!email || !password){
 	var loginError = new Message({
 		target: '.login-msg',
@@ -46,8 +65,23 @@ $('body').on('click', '.login-btn', function(e){
 		message: 'Please fill in all form fields'
 	}).show();
 		return false;
-
 	}
+	
+
+	// Validations - more specific
+	$('#email').validationStation({ 
+		title: 'Email Error',
+		type: 'email',
+		msgDest: '.login-msg'
+	})
+	$('#password').validationStation({ 
+		title: 'Password',
+		type: 'password',
+		min: 5
+	})
+
+	
+
 
 	var post_data = {
 		'email': email,
@@ -116,6 +150,9 @@ $('body').on('click', '.login-btn', function(e){
 
 
 })
+
+
+
 
 
 

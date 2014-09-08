@@ -38,8 +38,8 @@ if(isset($_SESSION['user'])){
 
 
 
-
-	<?php require('public/partials/global/footer.php'); ?>
+	<?php require('public/partials/global/global-scripts.php'); ?>
+	<?php require('public/partials/global/app-scripts.php'); ?>
 	
 
 

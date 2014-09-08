@@ -18,7 +18,7 @@ if(isset($_SESSION['user'])){
 		<div class='login-reg-wrapper'>
 		
 	
-			<div class='form ta-center form__login'>
+			<div id='form__login' class='form ta-center form__login'>
 				<h2 class='form__header'>Meal-z</h2>
 
 				<div class='form__login-tabs'>
@@ -47,9 +47,11 @@ if(isset($_SESSION['user'])){
         
 
 	
-	<script src="public/js/libs/jquery.js"></script>
-	<script src="public/js/libs/helpers.js"></script>
+	<?php require('public/partials/global/global-scripts.php'); ?>
 	<script src="public/js/login.js"></script>
+	
+	
+
 
     </body>
 </html>

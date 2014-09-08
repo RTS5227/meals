@@ -600,6 +600,7 @@ label {
 
 input[type='text'],
 input[type='email'],
+input[type='password'],
 select {
   font-weight: 400;
   font-style: normal;
@@ -615,20 +616,24 @@ select {
   height: 38px; }
   input[type='text']:focus,
   input[type='email']:focus,
+  input[type='password']:focus,
   select:focus {
     border: 1px solid #0f97f9;
     background: #fffbf3;
     color: #322f31; }
   input[type='text'].w-50,
   input[type='email'].w-50,
+  input[type='password'].w-50,
   select.w-50 {
     width: 50%; }
   input[type='text'].w-60,
   input[type='email'].w-60,
+  input[type='password'].w-60,
   select.w-60 {
     width: 60%; }
   input[type='text'].w-75,
   input[type='email'].w-75,
+  input[type='password'].w-75,
   select.w-75 {
     width: 75%; }
 
