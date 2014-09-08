@@ -5,18 +5,38 @@ Add Validations:
  - email
  - password characters
  - minimum number of characters
-
-
-
 */
 
+
+// Toggle States
+// ==============
+
+$('.form__login-tab').on('click',function(){
+	$('.form__login-tab').removeClass('form__login-tab--active');
+	$(this).addClass('form__login-tab--active');
+	$('.msg').remove();
+	$('#email').focus();
+})
+
+$('.form__login-tab--login').on('click',function(){
+	$('.show-for__join').addClass('hidden');
+	$('.hide-for__login').removeClass('hidden');
+})
+
+$('.form__login-tab--join').on('click',function(){
+	$('.show-for__join').removeClass('hidden');
+	$('.hide-for__join').addClass('hidden');
+})
+
+
 // Login/Reg User
-//=============
+// ==============
 $('body').on('click', '.login-btn', function(e){
 	e.preventDefault();
 	
 	var email = $('#email').val();
-	var password = $('#password').val();	
+	var password = $('#password').val();
+	var name = $('#name').val();	
 
 
 	if(!email || !password){
@@ -31,7 +51,8 @@ $('body').on('click', '.login-btn', function(e){
 
 	var post_data = {
 		'email': email,
-		'password': password
+		'password': password,
+		'name': name
 	}
 
 

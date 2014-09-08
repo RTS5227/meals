@@ -5,7 +5,9 @@ $database = new medoo();
 
 
 $email = $_POST["email"];
+$name = $_POST["name"];
 $password1 = $_POST["password"];
+
 
 
 $password = md5($password1 . $salt);
@@ -27,7 +29,8 @@ else{
 	//if not...
 	$add = $database->insert('users', [
 		'email' => $email,
-		'password' => $password
+		'password' => $password,
+		'name' => $name
 	]);
 
 	if($add){
@@ -40,7 +43,6 @@ else{
 	}
 
 }
-
 
 
 

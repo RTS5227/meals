@@ -447,7 +447,7 @@ h1 {
   font-size: 20px;
   line-height: 28px; }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5, h6 {
   color: #e16120;
   font-weight: 300; }
 
@@ -548,6 +548,9 @@ body {
 .d-block {
   display: block; }
 
+.d-inline {
+  display: inline; }
+
 .p-rel {
   position: relative; }
 
@@ -557,6 +560,15 @@ body {
 .example-block {
   text-align: center;
   border: 1px solid #dadada; }
+
+.color--red {
+  color: red; }
+
+.color--white {
+  color: #fff; }
+
+.hidden {
+  display: none !important; }
 
 h1 {
   font-size: 36px;
@@ -587,6 +599,7 @@ label {
   margin: 0; }
 
 input[type='text'],
+input[type='email'],
 select {
   font-weight: 400;
   font-style: normal;
@@ -601,17 +614,21 @@ select {
   outline: 0;
   height: 38px; }
   input[type='text']:focus,
+  input[type='email']:focus,
   select:focus {
     border: 1px solid #0f97f9;
     background: #fffbf3;
     color: #322f31; }
   input[type='text'].w-50,
+  input[type='email'].w-50,
   select.w-50 {
     width: 50%; }
   input[type='text'].w-60,
+  input[type='email'].w-60,
   select.w-60 {
     width: 60%; }
   input[type='text'].w-75,
+  input[type='email'].w-75,
   select.w-75 {
     width: 75%; }
 
@@ -673,8 +690,7 @@ select {
     color: #9F6000; }
 
 .standard-link {
-  text-decoration: underline;
-  color: blue; }
+  text-decoration: underline; }
 
 .button-primary {
   -moz-box-shadow: none;
@@ -764,7 +780,7 @@ select {
 
 .login-reg-wrapper {
   background: #fff;
-  box-shadow: 0 0 6px #999;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 2px 3px 0;
   padding: 20px;
   border-radius: 4px;
   position: absolute;
@@ -779,6 +795,46 @@ select {
 
 .form__register {
   margin-top: 40px; }
+
+.form__login-tabs {
+  text-align: center; }
+
+.form__login-tab {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  color: #7e7e7e;
+  border: #7e7e7e 1px solid;
+  padding: 10px;
+  font-size: 13px; }
+
+.form__login-tab--left {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px; }
+
+.form__login-tab--right {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px; }
+
+.form__login-tab--active {
+  background: #7e7e7e;
+  color: #fff;
+  font-weight: 500; }
+  .form__login-tab--active:after {
+    border: 6px solid transparent;
+    border-top-color: #7e7e7e;
+    content: '';
+    height: 0;
+    margin-left: -6px;
+    position: absolute;
+    top: 100%;
+    right: auto;
+    bottom: auto;
+    left: 50%;
+    width: 0; }
+
+.form__login input {
+  font-size: 15px; }
 
 .meal-list {
   height: 440px;

@@ -1,6 +1,6 @@
 .login-reg-wrapper{
 	background: #fff;
-	box-shadow: 0 0 6px #999;
+	box-shadow: rgba(0,0,0,0.5) 0 2px 3px 0;
 	padding: 20px;
 	border-radius: 4px;
 	position: absolute;
@@ -17,4 +17,57 @@
 
 .form__register{
 	margin-top: 40px;
+}
+
+
+.form__login-tabs{
+	text-align: center
+}
+
+$toggle-btn-color: #7e7e7e;
+
+.form__login-tab{
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	color: $toggle-btn-color;
+	border: $toggle-btn-color 1px solid;
+	padding: 10px;
+	font-size: 13px;
+}
+
+.form__login-tab--left{
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+.form__login-tab--right{
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.form__login-tab--active{
+	background: $toggle-btn-color;
+	color: #fff;
+	font-weight: 500;
+
+	&:after{
+		border: 6px solid transparent;
+		border-top-color: $toggle-btn-color;
+		content: '';
+		height: 0;
+		margin-left: -6px;
+		position: absolute;
+		top: 100%;
+		right: auto;
+		bottom: auto;
+		left: 50%;
+		width: 0;
+	}
+}
+
+
+.form__login{
+	input{
+		font-size: 15px;
+	}
 }

@@ -17,6 +17,10 @@
 	display: block;
 }
 
+.d-inline{
+	display: inline;
+}
+
 
 // Positioning
 .p-rel{
@@ -34,4 +38,22 @@
 .example-block{
 	text-align: center;;
 	border: 1px solid #dadada;
+}
+
+
+
+.color--red{
+	color: red;
+}
+
+.color--white{
+	color: #fff;
+}
+
+
+// Visibility
+// ====================
+
+.hidden{
+	display: none!important;
 }
