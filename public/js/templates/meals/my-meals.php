@@ -42,7 +42,7 @@
 				<div class='meal-day'>
 					<p class='meal-day__headline'>Wednesday</p>
 					<ul class='meal-day__meals sortable'>
-						<li>Meals will be here</li>
+						
 					</ul>
 				</div>
 			</div>
@@ -56,7 +56,7 @@
 				<div class='meal-day'>
 					<p class='meal-day__headline'>Thursday</p>
 					<ul class='meal-day__meals sortable'>
-						<li>Meals will be here</li>
+
 					</ul>
 				</div>
 			</div>
@@ -65,7 +65,7 @@
 				<div class='meal-day'>
 					<p class='meal-day__headline'>Friday</p>
 					<ul class='meal-day__meals sortable'>
-						<li>Meals will be here</li>
+						
 					</ul>
 				</div>
 			</div>
@@ -74,7 +74,7 @@
 				<div class='meal-day'>
 					<p class='meal-day__headline'>Saturday / Sunday</p>
 					<ul class='meal-day__meals sortable'>
-						<li>Meals will be here</li>
+						
 					</ul>
 				</div>
 			</div>
