@@ -32,7 +32,7 @@ if($password == $profile_pw){
 	session_start();
 	$_SESSION['user']=$email;
 	$_SESSION['name']=$profile_name;
-	header('Location: '. $root . '/');
+	header('Location: '. $root . '/meals/#hi');
 	echo($root);
 
 

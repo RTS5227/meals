@@ -4,8 +4,13 @@ ini_set( "display_errors", 1 );
 
 session_start();
 
+$root = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
+
+$loginPage = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/meals/login.php'
+
 if(!isset($_SESSION['user'])){ 
-    header("Location: http://localhost:8888/apps/meals/login.php");
+
+    header("Location: ".$loginPage);
 }
 
 if(isset($_SESSION['user'])){
