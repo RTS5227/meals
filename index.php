@@ -6,7 +6,7 @@ session_start();
 
 $root = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
 
-$loginPage = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/meals/login.php'
+$loginPage = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/meals/login.php';
 
 if(!isset($_SESSION['user'])){ 
 
@@ -29,7 +29,7 @@ if(isset($_SESSION['user'])){
 
 ?>
 
-<?php require('public/partials/global/header.php'); ?>
+<?php include_once('public/partials/global/header.php'); ?>
 
 <body ng-app='MealsApp'>
 
@@ -43,8 +43,8 @@ if(isset($_SESSION['user'])){
 
 
 
-	<?php require('public/partials/global/global-scripts.php'); ?>
-	<?php require('public/partials/global/app-scripts.php'); ?>
+	<?php include_once('public/partials/global/global-scripts.php'); ?>
+	<?php include_once('public/partials/global/app-scripts.php'); ?>
 	
 
 
