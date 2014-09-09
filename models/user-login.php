@@ -2,6 +2,9 @@
 require_once 'meedoo.php';
 require_once 'config.php';
 
+$root = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
+
+
 $database = new medoo();
 
 
@@ -26,10 +29,13 @@ $profile_name = $profile[name];
 
 
 if($password == $profile_pw){
-	echo('good');
 	session_start();
 	$_SESSION['user']=$email;
 	$_SESSION['name']=$profile_name;
+	header('Location: '. $root . '/');
+	echo($root);
+
+
 }
 
 else{

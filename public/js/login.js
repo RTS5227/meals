@@ -99,7 +99,6 @@ $('body').on('click', '.login-btn', function(e){
 
 				if(response == 'good'){
 					log('we good');
-					window.location = 'http://localhost:8888/apps/meals/'
 				}
 				else{
 					// bad login
