@@ -2,9 +2,13 @@
 error_reporting( E_ALL );
 ini_set( "display_errors", 1 );
 
+$root = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
+$appHome = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/apps/meals/';
+
+
 session_start();
 if(isset($_SESSION['user'])){
-	header("Location: http://localhost:8888/apps/meals/");
+	header("Location: " . $appHome);
 }
 
 ?>

@@ -1,21 +1,16 @@
 <?php
 error_reporting( E_ALL );
 ini_set( "display_errors", 1 );
-
 session_start();
-
 $root = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/';
-
-$loginPage = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/meals/login.php';
+$loginPage = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/apps/meals/login.php';
 
 if(!isset($_SESSION['user'])){ 
-
     header("Location: ".$loginPage);
 }
 
 if(isset($_SESSION['user'])){
 	$userEmail = $_SESSION['user'];
-	
 	
 	if(isset($_SESSION['name'])){
 		$userName = $_SESSION['name'];

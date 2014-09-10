@@ -42,12 +42,23 @@ $('#hidepw2').on('click',function(e){
 })
 
 
+// URLS
+// =====================
+
+var getURL = function(){
+	var url = document.URL;
+	var to = url.lastIndexOf('/');
+	to = to == -1 ? url.length : to + 1;
+	return url.substring(0, to);
+}
+
+
 
 // Login/Reg User
 // ======================
 $('body').on('click', '.login-btn', function(e){
 	e.preventDefault();
-
+	var appUrl = getURL();
 
 	$('.login-msg').empty();  // WHY ISN'T THIS WORKING????
 	
@@ -69,38 +80,39 @@ $('body').on('click', '.login-btn', function(e){
 	
 
 	// Validations - more specific
-	$('#email').validationStation({ 
-		title: 'Email Error',
-		type: 'email',
-		msgDest: '.login-msg'
-	})
-	$('#password').validationStation({ 
-		title: 'Password',
-		type: 'password',
-		min: 5
-	})
+	// $('#email').validationStation({ 
+	// 	title: 'Email Error',
+	// 	type: 'email',
+	// 	msgDest: '.login-msg'
+	// })
+	// $('#password').validationStation({ 
+	// 	title: 'Password',
+	// 	type: 'password',
+	// 	min: 4
+	// })
 
 	
-
-
 	var post_data = {
 		'email': email,
 		'password': password,
 		'name': name
 	}
 
-
 	//Login
 	if($(this).attr('id') == 'login'){
+
 		$.get(
 			'models/user-login.php',
 			post_data, 
 			function(response){
+				log(response);
 
 				if(response == 'good'){
-					log('we good');
+					window.location = appUrl;
 				}
-				else{
+
+				if(response == 'bad'){
+
 					// bad login
 					var loginError = new Message({
 						target: '.login-msg',
@@ -116,6 +128,7 @@ $('body').on('click', '.login-btn', function(e){
 
 	//Register
 	else{
+
 		$.post(
 			'models/user-create.php',
 			post_data, 
@@ -131,7 +144,7 @@ $('body').on('click', '.login-btn', function(e){
 				}
 				
 				else if(response == 'good'){
-					window.location = 'http://localhost:8888/apps/meals/'
+					window.location = appUrl + '#welcome';
 				}
 				else{
 					var loginError = new Message({

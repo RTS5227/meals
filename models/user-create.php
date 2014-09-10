@@ -3,6 +3,8 @@ require_once 'meedoo.php';
 require_once 'config.php';
 $database = new medoo();
 
+session_start();
+
 ini_set('display_errors',1);
 ini_set('display_startup_errors',1);
 error_reporting(-1);
@@ -21,12 +23,11 @@ $profile = $database->get("users",
 	[ "email"], 
 	[ "email" => $email ]);
 
-$profile_email = $profile[email];
+$profile_email = $profile['email'];
 
 if($profile_email){
 	echo('emailTaken');
 }
-
 
 else{
 
@@ -38,7 +39,6 @@ else{
 	]);
 
 	if($add){
-		session_start();
 		$_SESSION['user']=$email;
 		echo('good');
 	}
