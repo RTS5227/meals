@@ -20,7 +20,21 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 	}
 
 
+	var resetMealEntry = function(){
+		$scope.mealID = '';
+		$scope.name = '';
+		$scope.type = '';
+		$scope.ingredients = [];
+		$scope.instructions = '';
 
+		$scope.editing = false;
+		$scope.editingName = '';
+	}
+
+	// events
+	$('body').on('click', '.sidebar-nav__new-meal', function(){
+		$scope.$apply(resetMealEntry);
+	})
 
 
 
