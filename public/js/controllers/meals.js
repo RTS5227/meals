@@ -38,23 +38,25 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 
 
 
-
+	// Sorting Meals in day divs
 	var sortable = function(){
 
 		$( ".sortable" ).sortable({
 			  helper: "clone",
 			  connectWith: ".sortable",
 			  refreshPositions: true,
-			  update: function(event, ui){
+			  receive: function(event, ui){
 
 			  	var day = $(this).data('day');
-			  	if(day){
+			  	var item = $(ui.item);
 
-				  	var item = $(ui.item);
-				  					  	
+			  	log('day is:');
+			  	log(day);
+
+			  	if(day){		  					  	
 				  	// Put item back in meal list.... need to fix order
-				  	var clonedItem = item.clone()
-				  	$('.meal-list').append(clonedItem);
+				  	// var clonedItem = item.clone()
+				  	// $('.meal-list').append(clonedItem);
 
 				  	// save reference of meal position (e.g. monday, tuesday)
 				  	var itemId = item.find('.meal-list__item-link').data('id');
@@ -68,9 +70,9 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 				  	// now get the order of this item
 				  	var dayOrder = item.find('.meal-list__item-link').data('order');;
 
-
 				  	updateMealPosition(itemId, day, dayOrder);
 			  	}
+
 
 			  }
 		})
@@ -83,21 +85,11 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 
 	var updateMealPosition = function(mealID, day, dayOrder){
 
-
-
-		log('updateMealPosition');
-		log(mealID);
-		log(day);
-		log(dayOrder);
-
 		fields = {
 			'mealID': mealID,
 			'position': day,
 			'positionOrder': dayOrder
 		}
-
-		log('fields:');
-		log(fields);
 
 		$http({
 		    method: 'POST',
@@ -105,16 +97,17 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 		    data: Object.toparams(fields),
 		    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).success(function(response){
-			log('response:');
-			log(response);
+			log('update Meal Position');
 			if(response === 'good'){
-				log('goodness');
 				var loginError = new Message({
 					target: '.createMeal-msg',
 					type: 'success',
 					message: "Meal position updated",
 					timeout: true
 				}).show();
+
+			loadMeals();
+
 			}
 		})
 
@@ -139,7 +132,6 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 		    method: "GET",
     		params: fields
 		}).success(function(data, status, headers, config) {
-		    log('success');
 		    log(data);
 		    $scope.meals = data;
 		    
@@ -159,7 +151,6 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 	// ==============================
 
 	$scope.updateMeal = function(){
-		log('update Meal');
 
 		fields = {
 			'mealID': $('.mealSubmit').data('id'),  //why can't get from scope??
@@ -200,6 +191,8 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 	$scope.saveMeal = function(){
 		var time = Date.now();
 
+		log('saving meal!');
+
 		fields = {
 			'user': $scope.user.email,
 			'name': $scope.name,
@@ -208,11 +201,9 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 			'ingredients': $scope.ingredients
 		}
 
-		log('fields:');
-		log($scope.fields);
 
 		fields.mealID = time;
-		log(fields);
+
 		// Store meal id as timestamp
 		$('.mealSubmit').attr('data-id',time);
 
@@ -225,8 +216,7 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 		    data: Object.toparams(fields),
 		    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 		}).success(function(response){
-			log('response:');
-			log(response);
+			log('good save');
 			loadMeals();
 			$scope.editing = true;
 			$scope.editingName = fields.name;
@@ -243,6 +233,7 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 
 
 	}
+
 
 
 	// ADD INGREDIENT

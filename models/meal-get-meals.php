@@ -21,7 +21,8 @@ $datas = $database->select("meals",
 		"ingredients",
 		"instructions",
 		"status",
-		"user"
+		"user",
+		"position"
 	], 
 	[ "AND" =>
 		[
