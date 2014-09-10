@@ -41,6 +41,11 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 	// Sorting Meals in day divs
 	var sortable = function(){
 
+		// NEED TO FIX:
+		// - Doesn't allow duplicate meals
+		//
+		//
+
 		$( ".sortable" ).sortable({
 			  helper: "clone",
 			  connectWith: ".sortable",
@@ -54,10 +59,6 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 			  	log(day);
 
 			  	if(day){		  					  	
-				  	// Put item back in meal list.... need to fix order
-				  	// var clonedItem = item.clone()
-				  	// $('.meal-list').append(clonedItem);
-
 				  	// save reference of meal position (e.g. monday, tuesday)
 				  	var itemId = item.find('.meal-list__item-link').data('id');
 				  	
@@ -68,9 +69,12 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 				  	})
 
 				  	// now get the order of this item
-				  	var dayOrder = item.find('.meal-list__item-link').data('order');;
+				  	var dayOrder = item.find('.meal-list__item-link').data('order');
+				  	log('day order: ' + dayOrder);
 
 				  	updateMealPosition(itemId, day, dayOrder);
+
+
 			  	}
 
 
@@ -105,7 +109,7 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 					message: "Meal position updated",
 					timeout: true
 				}).show();
-
+				
 			loadMeals();
 
 			}

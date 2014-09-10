@@ -22,7 +22,8 @@ $datas = $database->select("meals",
 		"instructions",
 		"status",
 		"user",
-		"position"
+		"position",
+		"positionOrder"
 	], 
 	[ "AND" =>
 		[

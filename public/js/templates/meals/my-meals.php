@@ -25,6 +25,7 @@
 					<p class='meal-day__headline'>Monday</p>
 					<ul class='meal-day__meals sortable' data-day='monday'>
 						<li ng-repeat='meal in meals | filter: {position: "monday"}' class='meal-list__item'> <a data-id='{{ meal.mealID }}' href='#/meal/{{meal.mealID}}' class='meal-list__item-link'> {{ meal.name }} </a> </li>
+						<!-- <li ng-repeat='meal in meals | filter: {position: "monday"} | orderBy: positionOrder' class='meal-list__item'> <a data-id='{{ meal.mealID }}' href='#/meal/{{meal.mealID}}' class='meal-list__item-link'> {{ meal.name }} </a> </li> -->
 					</ul>
 				</div>
 			</div>
