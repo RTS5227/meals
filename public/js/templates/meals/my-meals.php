@@ -9,7 +9,7 @@
 		<small>(Search by ingredient, name, type of meal...whateva)</small>
 		
 		<ul class='meal-list sortable'>
-			<li ng-repeat='meal in meals | filter:searchMeals' class='meal-list__item'> <a href='#/meal/{{meal.mealID}}' class='meal-list__item-link'> {{ meal.name }} </a> </li>
+			<li ng-repeat='meal in meals | filter:searchMeals' class='meal-list__item'> <a data-id='{{ meal.mealID }}' href='#/meal/{{meal.mealID}}' class='meal-list__item-link'> {{ meal.name }} </a> </li>
 		</ul>
 
 
@@ -23,27 +23,21 @@
 			<div class='col-4 l-block'>
 				<div class='meal-day'>
 					<p class='meal-day__headline'>Monday</p>
-					<ul class='meal-day__meals sortable'>
-						
-					</ul>
+					<ul class='meal-day__meals sortable' data-day='monday'></ul>
 				</div>
 			</div>
 
 			<div class='col-4 l-block'>
 				<div class='meal-day'>
 					<p class='meal-day__headline'>Tuesday</p>
-					<ul class='meal-day__meals sortable'>
-						
-					</ul>
+					<ul class='meal-day__meals sortable' data-day='tuesday'></ul>
 				</div>
 			</div>
 
 			<div class='col-4 l-block'>
 				<div class='meal-day'>
 					<p class='meal-day__headline'>Wednesday</p>
-					<ul class='meal-day__meals sortable'>
-						
-					</ul>
+					<ul class='meal-day__meals sortable' data-day='wednesday'></ul>
 				</div>
 			</div>
 
@@ -55,27 +49,21 @@
 			<div class='col-4 l-block'>
 				<div class='meal-day'>
 					<p class='meal-day__headline'>Thursday</p>
-					<ul class='meal-day__meals sortable'>
-
-					</ul>
+					<ul class='meal-day__meals sortable' data-day='thursday'></ul>
 				</div>
 			</div>
 
 			<div class='col-4 l-block'>
 				<div class='meal-day'>
 					<p class='meal-day__headline'>Friday</p>
-					<ul class='meal-day__meals sortable'>
-						
-					</ul>
+					<ul class='meal-day__meals sortable' data-day='friday'></ul>
 				</div>
 			</div>
 
 			<div class='col-4 l-block'>
 				<div class='meal-day'>
 					<p class='meal-day__headline'>Saturday / Sunday</p>
-					<ul class='meal-day__meals sortable'>
-						
-					</ul>
+					<ul class='meal-day__meals sortable' data-day='satsun'></ul>
 				</div>
 			</div>
 

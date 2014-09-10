@@ -38,17 +38,89 @@ app.controller("MealsController", function($scope, $stateParams, $http) {
 
 
 
+
 	var sortable = function(){
 
 		$( ".sortable" ).sortable({
 			  helper: "clone",
 			  connectWith: ".sortable",
 			  refreshPositions: true,
-			  update: function(){
-			  	log('update db');
+			  update: function(event, ui){
+
+			  	var day = $(this).data('day');
+			  	if(day){
+
+				  	var item = $(ui.item);
+				  					  	
+				  	// Put item back in meal list.... need to fix order
+				  	var clonedItem = item.clone()
+				  	$('.meal-list').append(clonedItem);
+
+				  	// save reference of meal position (e.g. monday, tuesday)
+				  	var itemId = item.find('.meal-list__item-link').data('id');
+				  	
+				  	// save reference of meal position order (e.g. first, second)
+				  	var $list = $(this);
+				  	$list.find('li').each(function(i){
+				  		$(this).find('.meal-list__item-link').attr('data-order',i)
+				  	})
+
+				  	// now get the order of this item
+				  	var dayOrder = item.find('.meal-list__item-link').data('order');;
+
+
+				  	updateMealPosition(itemId, day, dayOrder);
+			  	}
+
 			  }
 		})
 	}
+
+
+
+	// Save Meal Position
+	// =============================
+
+	var updateMealPosition = function(mealID, day, dayOrder){
+
+
+
+		log('updateMealPosition');
+		log(mealID);
+		log(day);
+		log(dayOrder);
+
+		fields = {
+			'mealID': mealID,
+			'position': day,
+			'positionOrder': dayOrder
+		}
+
+		log('fields:');
+		log(fields);
+
+		$http({
+		    method: 'POST',
+		    url: 'models/meal-update-position.php',		// Merge with update-single eventually...
+		    data: Object.toparams(fields),
+		    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+		}).success(function(response){
+			log('response:');
+			log(response);
+			if(response === 'good'){
+				log('goodness');
+				var loginError = new Message({
+					target: '.createMeal-msg',
+					type: 'success',
+					message: "Meal position updated",
+					timeout: true
+				}).show();
+			}
+		})
+
+
+	}
+
 
 
 
